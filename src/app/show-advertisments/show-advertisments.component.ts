@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { AdvertismentsDataService } from '../advertisments-data.service';
+import { IAdvertisment } from '../iadvertisment';
 
 /*
  * Component ShowAdvertisments
@@ -13,9 +13,12 @@ import { AdvertismentsDataService } from '../advertisments-data.service';
 })
 export class ShowAdvertismentsComponent implements OnInit {
 
-  constructor(advertismentDataService: AdvertismentsDataService) { }
+  private advertisments: IAdvertisment[];
+
+  constructor(private advertismentsDataService: AdvertismentsDataService) { }
 
   ngOnInit() {
+    this.advertismentsDataService.advertisments$.subscribe(ads => this.advertisments = ads);
   }
 
 }

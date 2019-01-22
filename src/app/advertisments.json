@@ -1,0 +1,14 @@
+[
+  {
+    "date": "1. 1. 2019",
+    "caption": "Hledám kočku",
+    "content": "Jsem dobrý člověk a přál bych si kočku, abych ji mohl hladit.",
+    "type": 1
+  },
+  {
+    "date": "3. 1. 2019",
+    "caption": "Nabízím psa",
+    "content": "Štěká, kouše, má vši.",
+    "type": 0
+  }
+]
