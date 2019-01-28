@@ -1,4 +1,9 @@
-<li *ngFor="let advertisment of advertisments ">
-  {{advertisment.xxx}}
-  heeej
-</li>
+<div *ngFor="let advertisment of advertisments ">
+  <h2>
+    <span *ngIf="advertisment.type == 0">Nabízím: </span>
+    <span *ngIf="advertisment.type == 1">Hledám: </span>
+    {{advertisment.caption}}
+  </h2>
+  <p>{{advertisment.content}}</p>
+  <p>({{advertisment.date}})</p>
+</div>

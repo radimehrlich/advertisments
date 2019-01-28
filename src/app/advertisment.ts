@@ -2,7 +2,7 @@
  * Interface IAdvertisment
  * Represents one single advertisment
  */
-export interface IAdvertisment {
+export class Advertisment {
 
   date: string;
   caption: string;

@@ -1,33 +1,51 @@
 import { Injectable } from '@angular/core';
+import { Advertisment } from './advertisment';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, BehaviorSubject } from 'rxjs';
-import { IAdvertisment } from './iadvertisment';
+import { Observable, BehaviorSubject } from 'rxjs';
+
 
 /*
  * Service AdvertismentsData
- * Responsible for reading advertisments from JSON file and reading/saving to LocalStorage.
+ * Responsible for reading/saving ads to LocalStorage. If empty, ask AdvertismentsFileService
  */
 @Injectable({
   providedIn: 'root'
 })
 export class AdvertismentsDataService {
-  
-  public advertisments$: Observable<IAdvertisment[] | null>;
-  private adsObs: BehaviorSubject<IAdvertisment[] | null>;
-  
+
+  private ads: BehaviorSubject<Advertisment[]> = new BehaviorSubject<Advertisment[]>([]);
   
   constructor(private http: HttpClient) {
-    this.adsObs = new BehaviorSubject<IAdvertisment[] | null>(null);
-    this.advertisments$ = this.adsObs.asObservable();
-    this.advertisments$ = this.http.get('./advertisments.json');
+    let loadedAds: Advertisment[] = this.loadAdsLocal();
+    if(loadedAds) {
+      this.ads.next(loadedAds);
+    } else {
+      this.http.get<Advertisment[]>('assets/advertisments.json').subscribe(data => {
+        this.ads.next(data);
+        localStorage.setItem('advertisments', JSON.stringify(data));
+      } );
+    }
   }
 
-}
+  public getAds(): Observable<Advertisment[]> {
+    return this.ads.asObservable();
+  }
 
-/* let ads: any;
-    ads = JSON.parse(localStorage.getItem('advertisments'));
-    if( ads === null){
-      ads = this.http.get('./advertisments.json');
-      localStorage.setItem('advertisments', JSON.stringify(ads));
+  private loadAdsLocal(): Advertisment[] {
+    let fromLocal: string;
+    fromLocal = localStorage.getItem('advertisments');
+    if (fromLocal) {
+      return <Advertisment[]>JSON.parse(fromLocal);
+    } else {
+      return null;
     }
-    return ads; */
+  }
+
+  private saveAdLocal(ad: Advertisment): void {
+    let ads: Advertisment[] = this.ads.getValue()
+    ads.unshift(ad);
+    this.ads.next(ads);
+    localStorage.setItem('advertisments', JSON.stringify(ads));
+  }
+
+    }
