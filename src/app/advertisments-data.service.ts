@@ -41,7 +41,7 @@ export class AdvertismentsDataService {
     }
   }
 
-  private saveAdLocal(ad: Advertisment): void {
+  public addAd(ad: Advertisment): void {
     let ads: Advertisment[] = this.ads.getValue()
     ads.unshift(ad);
     this.ads.next(ads);

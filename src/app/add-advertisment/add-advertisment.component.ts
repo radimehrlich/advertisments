@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdvertismentsDataService } from '../advertisments-data.service';
+import { Advertisment } from '../advertisment';
+import { Router } from '@angular/router';
 
 /*
  * Component AddAdvertisment
@@ -12,10 +14,22 @@ import { AdvertismentsDataService } from '../advertisments-data.service';
   styleUrls: ['./add-advertisment.component.css']
 })
 export class AddAdvertismentComponent implements OnInit {
+  
+  advertismentForm = new FormGroup({
+    caption: new FormControl('', Validators.required),
+    content: new FormControl('', Validators.required),
+    type: new FormControl('', Validators.required)
+  });
 
-  constructor(advertismentDataService: AdvertismentsDataService) { }
+  constructor(private advertismentsDataService: AdvertismentsDataService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  onSubmit() {
+    const newAd: Advertisment = Object.assign({}, this.advertismentForm.value);
+    newAd.date = Date.now();
+    this.advertismentsDataService.addAd(newAd);
+    this.router.navigate(['/inzeraty']);
   }
 
 }

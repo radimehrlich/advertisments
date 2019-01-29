@@ -4,7 +4,7 @@
  */
 export class Advertisment {
 
-  date: string;
+  date: number;
   caption: string;
   content: string;
   type: number;

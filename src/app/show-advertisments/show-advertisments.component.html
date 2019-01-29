@@ -1,9 +1,9 @@
-<div *ngFor="let advertisment of advertisments ">
+<div *ngFor="let advertisment of advertisments | validAds">
   <h2>
     <span *ngIf="advertisment.type == 0">Nabízím: </span>
     <span *ngIf="advertisment.type == 1">Hledám: </span>
     {{advertisment.caption}}
   </h2>
   <p>{{advertisment.content}}</p>
-  <p>({{advertisment.date}})</p>
+  <p>({{advertisment.date | date: 'd. M. yyyy'}})</p>
 </div>

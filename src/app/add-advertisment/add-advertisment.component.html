@@ -1,3 +1,9 @@
-<p>
-  add-advertisment works!
-</p>
+<h2>Přidat inzerát</h2>
+
+<form [formGroup]="advertismentForm" (ngSubmit)="onSubmit()">
+  <input type="radio" value="0" formControlName="type"> Nabízím
+  <input type="radio" value="1" formControlName="type"> Hledám
+  Nadpis: <input type="text" formControlName="caption" required>
+  Text: <input type="text" formControlName="content" required>
+  <button type="submit">Přidat inzerát</button>
+</form>
