@@ -1,0 +1,25 @@
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  background-color: #61892F;
+  border: none;
+  padding: 1rem 2rem;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:hover, nav a.active {
+  background-color: #474B4F;
+}
+
+nav {
+  text-align: center;
+  margin: 4rem 0 3rem 0;
+}

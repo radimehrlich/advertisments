@@ -1,0 +1,27 @@
+.ads {
+  text-align: center;
+  margin: 2rem 0 6rem 0;
+  padding: 0 1rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.advertisment {
+  margin: 1rem;
+  padding: 1rem;
+  width: 19rem;
+  border: #61892F 0.3rem solid;
+  border-radius: 1rem;
+}
+
+.date {
+  font-size: 70%;
+}
+
+h2 {
+  font-size: 130%;
+  line-height: 130%;
+  margin-bottom: 1rem;
+}

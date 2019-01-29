@@ -1,9 +1,22 @@
-<h2>Přidat inzerát</h2>
+  <form [formGroup]="advertismentForm" (ngSubmit)="onSubmit()" class="form-container">
 
-<form [formGroup]="advertismentForm" (ngSubmit)="onSubmit()">
-  <input type="radio" value="0" formControlName="type"> Nabízím
-  <input type="radio" value="1" formControlName="type"> Hledám
-  Nadpis: <input type="text" formControlName="caption" required>
-  Text: <input type="text" formControlName="content" required>
-  <button type="submit">Přidat inzerát</button>
-</form>
+    <div>
+      <mat-radio-group formControlName="type">
+        <mat-radio-button value="0">Nabízím</mat-radio-button>
+        <mat-radio-button value="1">Hledám</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nadpis</mat-label>
+      <input matInput placeholder="Zadejte nadpis inzerátu" type="text" formControlName="caption" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Text</mat-label>
+      <textarea matInput placeholder="Zadejte text inzerátu" formControlName="content" required></textarea>
+    </mat-form-field>
+    
+    <button mat-raised-button type="submit" [disabled]="!advertismentForm.valid" color="primary">Uložit inzerát</button>
+
+  </form>

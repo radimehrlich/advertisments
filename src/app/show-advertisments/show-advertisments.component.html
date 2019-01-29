@@ -1,9 +1,11 @@
-<div *ngFor="let advertisment of advertisments | validAds">
-  <h2>
-    <span *ngIf="advertisment.type == 0">Nabízím: </span>
-    <span *ngIf="advertisment.type == 1">Hledám: </span>
-    {{advertisment.caption}}
-  </h2>
-  <p>{{advertisment.content}}</p>
-  <p>({{advertisment.date | date: 'd. M. yyyy'}})</p>
-</div>
+<section class="ads">
+  <div *ngFor="let advertisment of advertisments | validAds" class="advertisment">
+    <h2>
+      <span *ngIf="advertisment.type == 0">Nabízím: </span>
+      <span *ngIf="advertisment.type == 1">Hledám: </span>
+      {{advertisment.caption}}
+    </h2>
+    <p>{{advertisment.content}}</p>
+    <p class="date">({{advertisment.date | date: 'd. M. yyyy'}})</p>
+  </div>
+</section>>

@@ -7,14 +7,26 @@
   },
   {
     "date": 1548755377187,
-    "caption": "Psisko",
-    "content": "Štěká, kouše, má vši.",
+    "caption": "Malý ratlík",
+    "content": "Štěká, kouše, má vši, ale jako on vás doma nikdo nepřivítá.",
     "type": 0
   },
   {
-    "date": 1548655377187,
+    "date": 1547655377187,
     "caption": "Něco",
     "content": "To je jedno, stejně je starý ;)",
     "type": 0
+  },
+  {
+    "date": 1548755378187,
+    "caption": "Dva jezevčíci",
+    "content": "Krátké nohy, dlouhé tělo. Jmenují se Max a Alex. Jsou to opravdu drahoušci, zamilujete si je.",
+    "type": 0
+  },
+  {
+    "date": 1548745377387,
+    "caption": "Opel Astra H 2002 1.9 CDTI",
+    "content": "Nabídněte prosím toto auto. Rozbil jsem ho a potřebuji rychle nové, aby to žena nepoznala. Hlavně musí být červené.",
+    "type": 1
   }
 ]

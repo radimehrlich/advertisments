@@ -6,7 +6,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 
 /*
  * Service AdvertismentsData
- * Responsible for reading/saving ads to LocalStorage. If empty, ask AdvertismentsFileService
+ * Responsible for reading/saving ads to LocalStorage. If empty, read from JSON.
  */
 @Injectable({
   providedIn: 'root'

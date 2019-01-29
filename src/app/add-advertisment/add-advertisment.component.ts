@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 
 /*
  * Component AddAdvertisment
- * Adding a new advertisment
+ * Adding a new advertisment using form
  */
 @Component({
   selector: 'app-add-advertisment',
@@ -16,8 +16,14 @@ import { Router } from '@angular/router';
 export class AddAdvertismentComponent implements OnInit {
   
   advertismentForm = new FormGroup({
-    caption: new FormControl('', Validators.required),
-    content: new FormControl('', Validators.required),
+    caption: new FormControl('', Validators.compose([
+        Validators.minLength(3), 
+        Validators.maxLength(120), 
+        Validators.required])),
+    content: new FormControl('', Validators.compose([
+      Validators.minLength(3), 
+      Validators.maxLength(600), 
+      Validators.required])),
     type: new FormControl('', Validators.required)
   });
 
